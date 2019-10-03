@@ -1,0 +1,22 @@
+
+// solution of problem code GREG in codechef of codemelange contest hosted by IIT Indore.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 2200011;
+
+int p[N];
+
+int main() {
+	for (int i = 2; i < N; i++) if (!p[i]) {
+		for (int j = i + i; j < N; j += i) p[j] = 1;
+	}
+	int n, m; scanf("%d%d", &n, &m);
+	int ans = 0;
+	for (int i = 2; i <= n + m; i++) {
+		if (!p[i]) ++ ans;
+	}
+	printf("%d\n", ans);
+	return 0;
+}
